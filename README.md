@@ -40,7 +40,9 @@ Those are 'enum' type and can be set by using `setCType()` function.
 The X and Y direction is rotated 90 degree clockwise in the implementation. Keep this in mind if you want to see the drew path.
 
 ## Example
-
+    #include<bits/stdc++.h>
+    #include"AStar.h"
+    
     AStar road(50, 60, 10, -2, 50);
     road.setHType(Euclidean);
     road.setCType(None);
