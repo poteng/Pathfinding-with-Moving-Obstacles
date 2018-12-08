@@ -17,10 +17,8 @@ using namespace std;
 
 
 int main() {
-    unsigned long  xOri = 5, yOri = 47, xDes = 38, yDes = 3;
-    int pathLength;
-    string input;
 
+    string input;
 
     AStar road(50, 60, 10, -2, 50);
     road.setHType(Euclidean);
@@ -29,21 +27,20 @@ int main() {
     cout << "create new map?" <<endl;
     cin >> input;
     if (input == "y"){
-        if (!road.createMapInfo()){
-
-        }
+        road.createMapInfo();
     }
 
     //get mapInfo from file to vectors
     if ( road.extractMapInfo() ){
-        //print vectors
         road.showMapInfo();
     }
 
 
+    //If a path from (5, 47) to (38, 3) can be found, draw the path
     if (road.aStarSearchMoving(5, 47, 38, 3)){
         road.drawLineObstacle();
     }
+    //If a path from (11, 9) to (43, 47) can be found, print out the path coordinates and draw the path
     if (road.aStarSearchMoving(11, 9, 43, 47)){
         road.showPath();
         road.drawLineObstacle();
@@ -52,11 +49,6 @@ int main() {
         road.drawLineObstacle();
     }
 
-
-
-
-//    pathLength = road.drawLineObstacle();
-//    watch(pathLength);
     cout << "Finished." << endl;
     return 0;
 }
